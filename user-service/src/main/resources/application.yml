@@ -1,0 +1,98 @@
+spring:
+  application:
+    name: user-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+
+server:
+  port: 8081
+---
+spring:
+  profiles: DEV
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/strabl
+    username: root
+    password: ___patidar@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+security:
+  jwt:
+    secret-key: strabl
+  session:
+    session-validity-seconds: 300 # 5 Minutes
+    refresh-validity-seconds: 900 # 15 Minutes
+    refresh-token-cleanup-job:
+      initial-delay-millis: 15000 # 15 seconds
+      delay-between-executions-millis: 120000 # 2 minutes
+      ttl-after-expiry-seconds: 180 # 3 minute
+
+cloud:
+  aws:
+    region:
+      static: eu-west-1
+      auto: false
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+data:
+  redis:
+    host: localhost
+    port: 6379
+---
+spring:
+  profiles: PROD
+
+  datasource:
+    url: jdbc:mysql://strabl-test-db-free.cfqariljdlrh.ap-south-1.rds.amazonaws.com:3306/strabl
+    username: admin
+    password: strabl123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+security:
+  jwt:
+    secret-key: production-secret
+  session:
+    session-validity-seconds: 86400 # 1 Day
+    refresh-validity-seconds: 2592000 # 1 Month
+    refresh-token-cleanup-job:
+      initial-delay-millis: 300000 # 5 minutes
+      delay-between-executions-millis: 21600000 # 6 hours
+      ttl-after-expiry-seconds: 864000 # 10 days
+
+cloud:
+  aws:
+    region:
+      static: ap-south-1
+      auto: false
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+data:
+  redis:
+    host: strabl-test-redis-1.wyt7yq.0001.aps1.cache.amazonaws.com
+    port: 6379
+---

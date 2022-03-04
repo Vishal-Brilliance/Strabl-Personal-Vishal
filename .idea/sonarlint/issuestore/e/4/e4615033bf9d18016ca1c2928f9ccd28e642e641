@@ -1,0 +1,11 @@
+
+a
+java:S1128"KRemove this unused import 'com.strabl.sdk.common.dto.response.CategoryDTO'.(äıÜÜ
+^
+java:S1128"HRemove this unused import 'com.strabl.sdk.domain.mapper.CategoryMapper'.(¢ƒ‹ˆ
+Q
+java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ
+S
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+E
+java:S5411Y"*Use the primitive boolean expression here.(é¡Éúÿÿÿÿ

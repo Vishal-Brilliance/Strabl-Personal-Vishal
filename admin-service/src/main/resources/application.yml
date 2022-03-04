@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: admin-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+      
+server:
+  port: 8088
+---
+spring:
+  profiles: DEV
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/strabl
+    username: root
+    password: ___patidar@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+data:
+  redis:
+    host: localhost
+    port: 6379

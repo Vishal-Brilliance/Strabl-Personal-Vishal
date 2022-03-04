@@ -1,0 +1,90 @@
+[
+  {
+    "line": 20,
+    "elements": [
+      {
+        "start_timestamp": "2022-02-08T08:39:35.600Z",
+        "line": 22,
+        "name": "Sign-up will google",
+        "description": "",
+        "id": "user-management;sign-up-will-google",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3998800,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "Buyer is on Sign-up page",
+            "match": {
+              "location": "StepDefinition.Google.buyer_is_on_Sign_up_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 996500,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "Buyer will click on Google Sign-up option",
+            "match": {
+              "location": "StepDefinition.Google.buyer_will_click_on_Google_Sign_up_option()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "google sign-up window will appear with all accounts of user",
+            "match": {
+              "location": "StepDefinition.Google.google_sign_up_window_will_appear_with_all_accounts_of_user()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "when Buyer will select \"emailaccount\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"emailaccount\"",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefinition.Google.when_Buyer_will_select(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException: Cannot invoke \"java.util.List.contains(Object)\" because the return value of \"com.strabl.service.user.bdd.Account.googleAccount()\" is null\r\n\tat com.strabl.service.user.bdd.Display.showaccount(Display.java:7)\r\n\tat StepDefinition.Google.buyer_will_be_signed_in_through_the_selected_account(Google.java:48)\r\n\tat ✽.Buyer will be signed-in through the selected account(file:///C:/strabl-internal-main/user-service/src/test/java/com/strabl/service/user/feature/google.feature:28)\r\n",
+              "duration": 4994800,
+              "status": "failed"
+            },
+            "line": 28,
+            "name": "Buyer will be signed-in through the selected account",
+            "match": {
+              "location": "StepDefinition.Google.buyer_will_be_signed_in_through_the_selected_account()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "User Management",
+    "description": "",
+    "id": "user-management",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/strabl/service/user/feature/google.feature",
+    "tags": []
+  }
+]

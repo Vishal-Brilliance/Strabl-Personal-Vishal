@@ -1,0 +1,19 @@
+
+|
+Ldomain-sdk/src/main/java/com/strabl/sdk/domain/dao/impl/CategoryDaoImpl.java,e\4\e4615033bf9d18016ca1c2928f9ccd28e642e641
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+€
+Pdomain-sdk/src/test/java/com/strabl/sdk/domain/dao/impl/CategoryDaoImplTest.java,0\7\07ce8d2c6e86f3c248c458d1e3fc93e60127ceba
+†
+Vdiscovery-service/src/main/java/com/strabl/service/discovery/DiscoveryApplication.java,7\a\7a94799b6f5eda7bc8af518a92a7a89030c76f9d
+
+Odomain-sdk/src/test/java/com/strabl/sdk/domain/dao/impl/ProductDaoImplTest.java,f\f\ff05d8e0c5bb4c62b83650eb1a2b2f4b80cfd86b
+z
+Juser-service/src/main/java/com/strabl/service/user/api/CartController.java,f\3\f3cfdf99022368ad2850b68e2750baba3a91489c
+I
+discovery-service/pom.xml,7\e\7e2a93dc15928a8ab4dff670d6d413b0a1b7e7b7
+z
+Juser-service/src/main/java/com/strabl/service/user/api/UserController.java,0\a\0ae1506adaea48d7c851970cf8ad5b1023bca897

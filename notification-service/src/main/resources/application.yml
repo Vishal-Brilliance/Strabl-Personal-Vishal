@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: notification-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka
+
+server:
+  port: 8083
+---
+spring:
+  profiles: DEV
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/strabl
+    username: root
+    password: ___patidar@1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+cloud:
+  aws:
+    region:
+      static: eu-west-1
+      auto: false
+    credentials:
+      access-key: AKIAWGZGUSTOOYL46AO3
+      secret-key: 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
+    end-point:
+      uri: https://sqs.eu-west-1.amazonaws.com/998038686369/dev-event-main-sqs
+
+data:
+  redis:
+    host: localhost
+    port: 6379
+---
+spring:
+  profiles: PROD
+
+  datasource:
+    url: jdbc:mysql://strabl-test-db-free.cfqariljdlrh.ap-south-1.rds.amazonaws.com:3306/strabl
+    username: admin
+    password: strabl123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+
+cloud:
+  aws:
+    region:
+      static: eu-west-1
+      auto: false
+    credentials:
+      access-key: AKIAWGZGUSTOOYL46AO3
+      secret-key: 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
+    end-point:
+      uri: https://sqs.eu-west-1.amazonaws.com/998038686369/prod-notification-service-sqs
+
+service:
+  event:
+    queue: prod-notification-service-sqs
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+data:
+  redis:
+    host: strabl-test-redis-1.wyt7yq.0001.aps1.cache.amazonaws.com
+    port: 6379
+---
