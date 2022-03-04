@@ -22,6 +22,7 @@ public class UserMapper extends BaseMapper {
     user.setFullName(request.getFullName());
     user.setPhone_number(request.getPhone_number());
     user.setUserUuid(UUID.randomUUID().toString());
+    user.setProfilePicture(request.getProfilePicture());
     user.setIsseller(Boolean.FALSE);
     user.setIsEnabled(Boolean.FALSE);
     user.setStatus(UserStatus.UNVERIFIED);
@@ -36,6 +37,7 @@ public class UserMapper extends BaseMapper {
             .email(entity.getEmail())
             .fullName(entity.getFullName())
             .phone_number(entity.getPhone_number())
+            .profilePicture(entity.getProfilePicture())
             .isEnabled(entity.getIsEnabled())
             .isseller(entity.getIsseller())
             .status(entity.getStatus().getEntityCode())

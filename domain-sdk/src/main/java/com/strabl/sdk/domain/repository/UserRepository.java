@@ -21,5 +21,6 @@ public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecifi
   @Query(nativeQuery=true, value=" SELECT * from user")
   Page<User> getAllCustomers(Pageable pageable);
 
-
+  @Query(nativeQuery = true , value=" Select * from user where isseller=true and id=?1 ")
+  User sellerDetails(Integer id);
 }

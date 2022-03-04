@@ -14,6 +14,7 @@ import com.strabl.sdk.common.error.ResponseType;
 import com.strabl.sdk.common.util.AuthTokenUtil;
 import com.strabl.sdk.domain.dao.StrablSessionDao;
 import com.strabl.sdk.domain.entity.User;
+import com.strabl.sdk.domain.repository.UserRepository;
 import com.strabl.service.user.service.SessionService;
 import com.strabl.service.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.strabl.sdk.domain.entity.enums.columns.UserStatus.INACTIVE;
 
@@ -35,6 +37,7 @@ public class UserController {
 
   private final UserService userService;
   private final StrablSessionDao strablSessionDao;
+  private final UserRepository userRepository;
 
   @PostMapping("register")
   public ResponseDTO<UserResponseDTO> register(
@@ -121,4 +124,5 @@ public class UserController {
     PagedResponseRequest pagedResponseRequest = PagedResponseRequest.of(pageNumber, pageSize, 6);
     return ResponseDTO.success(userService.getSellerItems(productId, pagedResponseRequest));
   }
+
 }

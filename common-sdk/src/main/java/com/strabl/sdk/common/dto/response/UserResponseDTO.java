@@ -26,4 +26,6 @@ public class UserResponseDTO implements Serializable {
     private String status;
     private Instant createdAt;
     private Boolean isseller;
+    private String profilePicture;
+
 }

@@ -30,6 +30,10 @@ public class Cart extends BaseEntity {
     @JsonIgnore
     private User user;
 
+    @ManyToMany(mappedBy = "cartList")
+    @JsonIgnore
+    private List<Orders> ordersList;
+
     @ManyToMany
     @JsonIgnore
     @JoinTable(name = "cart_product", joinColumns = @JoinColumn(name = "cart_id"),

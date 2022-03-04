@@ -19,4 +19,5 @@ public class RegisterRequest extends BaseRequest {
   @NotBlank
   private String phone_number;
 
+  private String profilePicture;
 }

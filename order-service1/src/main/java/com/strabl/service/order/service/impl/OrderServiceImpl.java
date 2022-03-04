@@ -32,10 +32,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public OrdersDTO placeOrder(Orders orders, Integer userId) {
-		User user = userDao.findByIdOrThrow(userId);
-		Orders savedOrder = orderDao.makeOrder(orders);
-	     return OrdersMapper.toOrdersDTO(savedOrder);
+	public OrdersDTO placeOrder(OrdersDTO ordersDTO, Integer userId) {
+		return orderDao.makeOrder(ordersDTO, userId);
 	}
 
 }

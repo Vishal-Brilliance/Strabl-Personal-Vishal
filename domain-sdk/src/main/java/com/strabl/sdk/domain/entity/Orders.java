@@ -1,10 +1,12 @@
 package com.strabl.sdk.domain.entity;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.strabl.sdk.domain.entity.enums.columns.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,9 +35,11 @@ public class Orders extends BaseEntity {
 	@JoinColumn(name = "address_id", nullable = false)
 	private Address address;
 
-	@ManyToOne
-	@JoinColumn(name = "product_id", nullable=false)
-	private Product product;
+	@ManyToMany
+	@JsonIgnore
+	@JoinTable(name = "orders_cart", joinColumns = @JoinColumn(name = "orders_id"),
+			inverseJoinColumns = @JoinColumn(name = "cart_id"))
+	private List<Cart> cartList;
 
 	@ManyToOne
 	@JoinColumn(name = "currency_id", nullable=false)
@@ -61,5 +65,9 @@ public class Orders extends BaseEntity {
 
 	private boolean isipf;
 
+	@Override
+	public String toString() {
+		return "Orders{}";
+	}
 
 }

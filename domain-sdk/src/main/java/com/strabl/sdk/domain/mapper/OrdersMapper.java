@@ -7,6 +7,8 @@ import com.strabl.sdk.domain.entity.enums.columns.ClassificationType;
 import com.strabl.sdk.domain.entity.enums.columns.OrdersStatus;
 import com.strabl.sdk.domain.entity.enums.columns.PaymentType;
 
+import java.util.stream.Collectors;
+
 
 public class OrdersMapper{
 
@@ -15,15 +17,13 @@ public class OrdersMapper{
                 .id(orders.getId())
                 .uuid(orders.getUuid())
                 .address(AddressMapper.toAddressDTO(orders.getAddress()))
-                .product(ProductMapper.toProductResponse(orders.getProduct()))
+                .cartDTOList(orders.getCartList().stream().map(CartMapper::toCartDto).collect(Collectors.toList()))
                 .currency(CurrencyMapper.toCurrencyDTO(orders.getCurrency()))
                 .user(UserMapper.toUserResponseDTO(orders.getUser()))
                 .status(orders.getStatus().getEntityCode())
                 .type(orders.getType().getEntityCode())
                 .paymentType(orders.getPaymentType().getEntityCode())
-                //.payement(PaymentMapper.toPaymentDTO(orders.getPayement()))
-                .payement(orders.getPayement() != null ? PaymentMapper.toPaymentDTO(orders.getPayement()) : null)
-                .quantity(orders.getQuantity())
+                .payement(PaymentMapper.toPaymentDTO(orders.getPayement()))
                 .ipf(orders.getIpf())
                 .isipf(orders.isIsipf())
                 .startDate(orders.getStartDate())
@@ -34,20 +34,18 @@ public class OrdersMapper{
 
     }
 
-    public static Orders toOrdersEntityFrom(OrdersDTO ordersDTO , ClassificationDTO classificationDTO , User user ) {
+    public static Orders toOrdersEntityFrom(OrdersDTO ordersDTO, User user) {
         return Orders.builder()
-                .type(ClassificationType.from(classificationDTO.getClassificationType()))
+                .type(ClassificationType.from(ordersDTO.getClassification().getClassificationType()))
                 .status(OrdersStatus.from(ordersDTO.getStatus()))
                 .ipf(ordersDTO.getIpf())
                 .address(Address.builder().id(ordersDTO.getAddress().getId()).build())
-                .product(Product.builder().id(ordersDTO.getId()).build())
                 .currency(Currency.builder().id(ordersDTO.getId()).build())
                 .payement(Payment.builder().id(ordersDTO.getId()).build())
                 .isipf(false)
                 .endDate(ordersDTO.getEndDate())
                 .startDate(ordersDTO.getStartDate())
                 .paymentType(PaymentType.from(ordersDTO.getPaymentType()))
-                .quantity(ordersDTO.getQuantity())
                 .status(OrdersStatus.from(ordersDTO.getStatus()))
                 .user(user)
                 .build();

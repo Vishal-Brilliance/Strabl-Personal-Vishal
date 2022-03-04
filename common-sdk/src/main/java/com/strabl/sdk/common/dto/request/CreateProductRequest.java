@@ -7,6 +7,7 @@ import com.strabl.sdk.common.dto.response.UserResponseDTO;
 import lombok.Data;
 
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Data
 public class CreateProductRequest extends BaseRequest {
@@ -32,6 +33,9 @@ public class CreateProductRequest extends BaseRequest {
 
   private ClassificationDTO classification;
   private TBYBDTO tbyb;
+
+  @NotNull
+  private List<Integer> tagsList;
 
   @Size(min = 1, max = 200)
   @NotNull

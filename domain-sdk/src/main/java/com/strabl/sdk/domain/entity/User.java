@@ -25,4 +25,5 @@ public class User extends BaseEntity {
   private Boolean isEnabled;
   private UserStatus status;
   private Boolean isseller;
+  private String profilePicture;
 }

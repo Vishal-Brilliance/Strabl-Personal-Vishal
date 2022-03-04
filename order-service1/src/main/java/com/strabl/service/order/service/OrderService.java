@@ -11,6 +11,6 @@ public interface OrderService {
 
 	Page<OrdersDTO> getOrderByCustomerId(Integer user_id , PagedResponseRequest pagedResponseRequest);
 
-    OrdersDTO placeOrder(Orders orders, Integer userId);
+    OrdersDTO placeOrder(OrdersDTO ordersDTO, Integer userId);
 
 }

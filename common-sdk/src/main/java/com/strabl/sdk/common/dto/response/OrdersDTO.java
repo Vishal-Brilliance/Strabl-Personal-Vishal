@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Data;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -17,7 +18,8 @@ public class OrdersDTO {
     private UUID uuid;
     private UserResponseDTO user;
     private AddressDTO address;
-    private ProductResponse product;
+    private List<CartDTO> cartDTOList;
+    private ClassificationDTO classification;
     private CurrencyDTO currency;
     private String paymentType;
     private PaymentDTO payement;

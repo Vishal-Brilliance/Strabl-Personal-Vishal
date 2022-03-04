@@ -1,10 +1,12 @@
 package com.strabl.service.seller.api;
 
 import com.strabl.sdk.common.dto.page.PagedResponseRequest;
+import com.strabl.sdk.common.dto.response.OrdersDTO;
 import com.strabl.sdk.common.dto.response.ProductResponse;
 import com.strabl.sdk.common.dto.response.ResponseDTO;
 import com.strabl.sdk.common.dto.response.UserResponseDTO;
 import com.strabl.sdk.domain.dao.StrablSessionDao;
+import com.strabl.sdk.domain.entity.User;
 import com.strabl.service.seller.service.SellerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,5 +45,40 @@ public class SellerController {
 		UserResponseDTO user = strablSessionDao.getUserProfileForSession(token);
 		PagedResponseRequest pagedResponseRequest = PagedResponseRequest.of(pageNumber, pageSize, MAX_PAGE_SIZE);
 		return ResponseDTO.success(sellerService.sellerProduct(sellerId , pagedResponseRequest));
+	}
+
+	@GetMapping("info")
+	public ResponseDTO<User> sellerInfo(@RequestParam Integer id){
+		return ResponseDTO.success(sellerService.sellerInfo(id));
+	}
+
+	@GetMapping("/getCompleteOrders")
+	public ResponseDTO<List<OrdersDTO>> getCompleteOrders(
+			@RequestParam Integer pageNumber,
+			@RequestParam Integer pageSize,
+			@RequestParam Integer userId
+	){
+		PagedResponseRequest pagedResponseRequest = PagedResponseRequest.of(pageNumber, pageSize, MAX_PAGE_SIZE);
+		return ResponseDTO.success(sellerService.getCompleteOrders(userId, pagedResponseRequest));
+	}
+
+	@GetMapping("/getPendingOrders")
+	public ResponseDTO<List<OrdersDTO>> getPendingOrders(
+			@RequestParam Integer pageNumber,
+			@RequestParam Integer pageSize,
+			@RequestParam Integer userId
+	){
+		PagedResponseRequest pagedResponseRequest = PagedResponseRequest.of(pageNumber, pageSize, MAX_PAGE_SIZE);
+		return ResponseDTO.success(sellerService.getPendingOrders(userId, pagedResponseRequest));
+	}
+
+	@GetMapping("/getCancelledOrders")
+	public ResponseDTO<List<OrdersDTO>> getCancelledOrders(
+			@RequestParam Integer pageNumber,
+			@RequestParam Integer pageSize,
+			@RequestParam Integer userId
+	){
+		PagedResponseRequest pagedResponseRequest = PagedResponseRequest.of(pageNumber, pageSize, MAX_PAGE_SIZE);
+		return ResponseDTO.success(sellerService.getCancelledOrders(userId, pagedResponseRequest));
 	}
 }

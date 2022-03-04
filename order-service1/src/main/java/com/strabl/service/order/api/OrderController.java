@@ -40,9 +40,11 @@ public class OrderController {
 	}
 
 	@PostMapping("order")
-	public ResponseDTO<OrdersDTO> placeOrder(@RequestBody Orders orders , @RequestParam Integer userId, @RequestParam String token) throws AuthenticationException{
+	public ResponseDTO<OrdersDTO> placeOrder(
+			@RequestBody OrdersDTO ordersDTO ,
+			@RequestParam Integer userId,
+			@RequestParam String token) {
 		UserResponseDTO user = strablSessionDao.getUserProfileForSession(token);
-		return ResponseDTO.success(orderService.placeOrder(orders , userId));
+		return ResponseDTO.success(orderService.placeOrder(ordersDTO , userId));
 	}
-
 }

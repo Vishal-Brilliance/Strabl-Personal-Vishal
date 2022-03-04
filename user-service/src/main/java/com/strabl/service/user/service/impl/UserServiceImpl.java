@@ -225,4 +225,6 @@ public class UserServiceImpl implements UserService {
   public Page<ProductResponse> getSellerItems(Integer productId, PagedResponseRequest pagedResponseRequest) {
     return productDao.getSellerItems(productId, pagedResponseRequest);
   }
+
+
 }

@@ -14,8 +14,8 @@
         <module name="user-service" />
         <module name="domain-sdk" />
         <module name="seller-service" />
-        <module name="admin-service" />
         <module name="notification-service" />
+        <module name="admin-service" />
         <module name="discovery-service" />
       </profile>
     </annotationProcessing>

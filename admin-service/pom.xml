@@ -52,19 +52,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-      <dependency>
-          <groupId>io.cucumber</groupId>
-          <artifactId>cucumber-java</artifactId>
-          <version>5.7.0</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>io.cucumber</groupId>
-          <artifactId>cucumber-junit</artifactId>
-          <version>5.7.0</version>
-          <scope>test</scope>
-      </dependency>
-  </dependencies>
+	</dependencies>
 	<dependencyManagement>
         <dependencies>
             <dependency>

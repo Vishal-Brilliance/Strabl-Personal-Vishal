@@ -5,12 +5,7 @@ import com.strabl.sdk.common.error.ResponseType;
 import com.strabl.sdk.common.exception.EmailAlreadyExistException;
 import com.strabl.sdk.common.exception.UserNotFoundException;
 import com.strabl.sdk.domain.criteria.page.StrablPageable;
-import com.strabl.sdk.domain.criteria.specification.CategorySpecification;
-import com.strabl.sdk.domain.criteria.specification.ProductSpecification;
-import com.strabl.sdk.domain.criteria.specification.UserSpecification;
 import com.strabl.sdk.domain.dao.UserDao;
-import com.strabl.sdk.domain.entity.Category;
-import com.strabl.sdk.domain.entity.Product;
 import com.strabl.sdk.domain.entity.User;
 import com.strabl.sdk.domain.entity.enums.columns.UserStatus;
 import com.strabl.sdk.domain.repository.UserRepository;
@@ -103,6 +98,11 @@ public class UserDaoImpl implements UserDao {
     User user = this.findByIdOrThrow(id);
     user.setStatus(UserStatus.INACTIVE);
     return userRepository.save(user);
+  }
+
+  @Override
+  public User sellerDetails(Integer id) {
+    return userRepository.sellerDetails(id);
   }
 
 }

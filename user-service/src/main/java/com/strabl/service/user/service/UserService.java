@@ -8,6 +8,7 @@ import com.strabl.sdk.common.dto.request.ResetPasswordRequest;
 import com.strabl.sdk.common.dto.response.LoginResponse;
 import com.strabl.sdk.common.dto.response.ProductResponse;
 import com.strabl.sdk.common.dto.response.UserResponseDTO;
+import com.strabl.sdk.domain.entity.User;
 import com.strabl.sdk.domain.entity.enums.columns.UserStatus;
 import org.springframework.data.domain.Page;
 
@@ -32,4 +33,5 @@ public interface UserService {
   void updateStatus(Integer id, UserStatus inactive);
 
   Page<ProductResponse> getSellerItems(Integer productId, PagedResponseRequest pagedResponseRequest);
+
 }

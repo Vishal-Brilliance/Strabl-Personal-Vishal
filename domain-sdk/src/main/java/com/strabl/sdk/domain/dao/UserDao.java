@@ -1,12 +1,15 @@
 package com.strabl.sdk.domain.dao;
 
 import com.strabl.sdk.common.dto.page.PagedResponseRequest;
+import com.strabl.sdk.common.dto.response.UserResponseDTO;
 import com.strabl.sdk.domain.entity.User;
 
 import com.strabl.sdk.domain.entity.enums.columns.UserStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+
+import java.util.stream.DoubleStream;
 
 public interface UserDao {
 
@@ -33,4 +36,6 @@ public interface UserDao {
   void deleteUserById(Integer id);
 
   User updateStatus(Integer id, UserStatus inactive);
+
+  User sellerDetails(Integer id);
 }
